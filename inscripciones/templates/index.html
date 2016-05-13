@@ -1,0 +1,11 @@
+<form id='save_alumno' action="{% url 'home:add' %}" method="post">
+    {% csrf_token %}
+    <input id="nombre" value="" name="name">
+    <input id="apellido" value="" name="surname">
+    <select name="combo">
+        {% for c in cursos %}
+        <option selected="selected" value="{{c.id}}" >{{c.numero}} {{c.division}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Select">
+</form>
