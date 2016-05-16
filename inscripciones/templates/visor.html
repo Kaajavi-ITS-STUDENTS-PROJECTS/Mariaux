@@ -1,0 +1,7 @@
+<h1>Fo</h1>  {% for form in forms %}
+<form method="POST" class="post-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="">Save</button>
+</form>
+{% endfor %}

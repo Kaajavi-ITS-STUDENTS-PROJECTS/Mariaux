@@ -2,7 +2,10 @@ from django.conf.urls import patterns, include, url
 from django.views.generic.edit import UpdateView
 
 urlpatterns = patterns('',
-                       url(r'^$',
+                       url(r'^',
+                          'inscripciones.views.visor',
+                          name='visor'),
+                       url(r'^foo',
                            'inscripciones.views.home',
                            name='home'),
                       url(r'^add_alumno$',
