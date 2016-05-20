@@ -1,11 +1,15 @@
-<form id='save_alumno' action="{% url 'home:add' %}" method="post">
-    {% csrf_token %}
-    <input id="nombre" value="" name="name">
-    <input id="apellido" value="" name="surname">
-    <select name="combo">
-        {% for c in cursos %}
-        <option selected="selected" value="{{c.id}}" >{{c.numero}} {{c.division}}</option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Select">
-</form>
+<section>
+    <form id='save_alumno' action="{% url 'home:add' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar alumno">
+    </form>
+</section>
+
+<section>
+    {% for alumno in alumnos %}
+        {% if alumno.curso.numero == 1 and alumno.curso.division == "B" %}
+            <p>{{alumno.nombre}} {{alumno.apellido}}</p>
+        {% endif %}
+    {% endfor %}
+</section>
